@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     // Initialize Terraform with a remote backend
-                    bat 'terraform init -input=false'
+                    batchFile 'terraform init -input=false'
                 }
             }
         }
@@ -30,7 +30,7 @@ pipeline {
             steps {
                 script {
                     // Validate the Terraform configuration files
-                    bat 'terraform validate'
+                    batchFile 'terraform validate'
                 }
             }
         }
@@ -39,7 +39,7 @@ pipeline {
             steps {
                 script {
                     // Generate the execution plan and save it to a file for later use
-                    bat 'terraform plan -out=tfplan -input=false'
+                    batchFile 'terraform plan -out=tfplan -input=false'
                 }
             }
         }
@@ -60,7 +60,7 @@ pipeline {
             steps {
                 script {
                     // Apply the Terraform plan
-                    bat 'terraform apply -input=false tfplan'
+                    batchFile 'terraform apply -input=false tfplan'
                 }
             }
         }
@@ -69,7 +69,7 @@ pipeline {
     post {
         always {
             // Clean up temporary files
-            bat 'rm -f tfplan'
+            batchFile 'rm -f tfplan'
         }
         success {
             echo 'Terraform changes applied successfully!'
