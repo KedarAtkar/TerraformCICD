@@ -1,5 +1,9 @@
-resource "aws_security_group" "sg_8080" {
-  name = "terraform-learn-state-sg-8080"
+locals{
+  sgName=0
+}
+
+resource "aws_security_group" "sg8080${locals.sgName+1}"
+  name = "terraform-learn-state-sg-8080${locals.sgName+1}"
   ingress {
     from_port   = "8080"
     to_port     = "8080"
