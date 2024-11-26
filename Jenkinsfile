@@ -39,9 +39,7 @@ pipeline {
             steps {
                 script {
                     // Generate the execution plan and save it to a file for later use
-                    // bat 'terraform plan -out=tfplan -input=false'
-                    // bat 'terraform plan -no-color > tf.plan'
-                    bat 'terraform plan -no-color | tee-object tf.plan'
+                    bat 'terraform plan -out=tfplan -input=false'
                 }
             }
         }
