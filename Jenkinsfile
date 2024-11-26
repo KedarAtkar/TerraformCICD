@@ -1,13 +1,13 @@
 pipeline {
     agent any
 
-    // environment {
-    //     // Define environment variables (use Jenkins credentials store for sensitive values)
-    //     AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
-    //     AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-    //     AWS_REGION            = 'us-east-1' // Specify the AWS region
-    //     TF_VAR_environment    = 'production' // Example of passing environment-specific variables
-    // }
+    environment {
+        // Define environment variables (use Jenkins credentials store for sensitive values)
+        AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+        // AWS_REGION            = 'us-east-1' // Specify the AWS region
+        // TF_VAR_environment    = 'production' // Example of passing environment-specific variables
+    }
 
     stages {
         stage('Checkout Code') {
