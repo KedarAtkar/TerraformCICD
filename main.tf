@@ -1,4 +1,4 @@
-resource "aws_security_group" "sg8084"
+resource "aws_security_group" "sg8084" {
   name = "terraform-learn-state-sg-8084"
   ingress {
     from_port   = "8080"
