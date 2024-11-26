@@ -69,7 +69,7 @@ pipeline {
     post {
         always {
             // Clean up temporary files
-            bat 'rm -f tfplan'
+            sh 'del -f tfplan'
         }
         success {
             echo 'Terraform changes applied successfully!'
